@@ -1,0 +1,18 @@
+.list-group-item {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item button {
+    margin-left: 5px;
+}
+
+.edit-input-hide {
+    display: none;
+}
+
+.edit-input-show {
+    display: block;
+}
