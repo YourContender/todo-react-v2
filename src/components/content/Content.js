@@ -12,8 +12,10 @@ class Content extends React.Component {
                             key={item.id} 
                             text={item.text} 
                             id={item.id} 
+                            done={item.done}
                             deleteItem={this.props.deleteItem}
                             editItemText={this.props.editItemText}
+                            toggleClass={this.props.toggleClass}
                         />
                     )
                 })}

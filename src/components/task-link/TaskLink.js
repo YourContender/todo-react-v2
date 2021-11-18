@@ -7,8 +7,8 @@ class TaskLink extends React.Component {
         this.state = {
             value: false,
             editText: this.props.text,
+            done: false
         }
-        console.log(props);
     }
 
     editClick = () => {
@@ -31,24 +31,26 @@ class TaskLink extends React.Component {
     }
 
     render() {
-        const {text, deleteItem, id} = this.props;
+        const {text, deleteItem, id, toggleClass, done} = this.props;
         const {value} = this.state;
-
+        let classes = done ? {'backgroundColor': 'rgba(144, 226, 144, 0.836)'} : {'backgroundColor': 'white'}
+        
         return (
-            <li className="list-group-item">
-                {text}
-            <div>
-                {value ? <input onChange={this.handleInputEdit} className='edit-input' placeholder='enter edit'/> : null}
+            <li className="list-group-item" style={classes}> 
+                    <span onClick={() => toggleClass(id)}>{text}</span> 
+                <div>
+                    {value ? <input onChange={this.handleInputEdit} className='edit-input' placeholder='enter edit'/> : null}
 
-                <button onClick={this.editClick} type="button" className="btn btn-outline-secondary">
-                    edit
-                </button>
+                    <button onClick={this.editClick} type="button" className="btn btn-outline-secondary">
+                        edit
+                    </button>
 
-                <button onClick={() => deleteItem(id)} type="button" className="btn btn-danger">
-                    X
-                </button>
-            </div>
-        </li>
+                    <button onClick={() => deleteItem(id)} type="button" className="btn btn-danger">
+                        X
+                    </button>
+                </div>
+
+            </li>
         )
     }
 }
